@@ -23,4 +23,4 @@ services:
         - chmod +x /etc/service/ruby/run
 
   database:
-    image: postgres:latest
+    image: postgres:10.13
