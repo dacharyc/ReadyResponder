@@ -1,3 +1,26 @@
 services:
 
-  
+  ruby:
+    image: ruby/ruby:2.6
+    default: true
+    depends: database
+    commands:
+      init:
+        - apt-get install postgresql-client imagemagick
+        - gem update --system
+        - gem install bundler:1.16.6
+        - gem install rake:12.3.1
+        - bundle install
+
+      update:
+        - bin/rails db:setup
+
+      build:
+        # Set up a long-running process to run the rails server
+        - mkdir -p /etc/service/ruby
+        - echo "#!/bin/sh" > /etc/service/ruby/run
+        - echo "bin/rails s -b 0.0.0.0 -p 80" >> /etc/service/ruby/run
+        - chmod +x /etc/service/ruby/run
+
+  database:
+    image: tugboatqa/postgres:latest
