@@ -1,7 +1,7 @@
 services:
 
   ruby:
-    image: ruby/ruby:2.6
+    image: ruby:2.6
     default: true
     depends: database
     commands:
