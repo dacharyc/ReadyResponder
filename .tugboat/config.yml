@@ -29,3 +29,8 @@ services:
 
   database:
     image: tugboatqa/postgres:10.13
+    commands:
+      init:
+        - psql -U postgres -d tugboat -c "ALTER USER tugboat WITH CREATEDB;"
+      build:
+        - psql -U postgres -d tugboat -c "ALTER USER tugboat WITH NOCREATEDB;"
