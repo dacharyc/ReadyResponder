@@ -1,11 +1,13 @@
 services:
 
   ruby:
-    image: ruby:2.6
+    image: tugboatqa/debian
     default: true
     depends: database
     commands:
       init:
+        - apt-get update
+        - apt-get install ruby ruby-dev
         - apt-get install postgresql-client imagemagick
         - gem update --system
         - gem install bundler:1.16.6
