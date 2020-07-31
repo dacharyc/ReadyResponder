@@ -32,5 +32,5 @@ services:
     commands:
       init:
         - psql -U postgres -d tugboat -c "ALTER USER tugboat WITH CREATEDB;"
-      build:
-        - psql -U postgres -d tugboat -c "ALTER USER tugboat WITH NOCREATEDB;"
+#      build:
+#        - psql -U postgres -d tugboat -c "ALTER USER tugboat WITH NOCREATEDB;"
