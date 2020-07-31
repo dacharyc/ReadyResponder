@@ -15,12 +15,15 @@ services:
       update:
         - bin/rails db:setup
 
-      build:
+      #build:
         # Set up a long-running process to run the rails server
-        - mkdir -p /etc/service/ruby
-        - echo "#!/bin/sh" > /etc/service/ruby/run
-        - echo "bin/rails s -b 0.0.0.0 -p 80" >> /etc/service/ruby/run
-        - chmod +x /etc/service/ruby/run
+        #- mkdir -p /etc/service/ruby
+        #- echo "#!/bin/sh" > /etc/service/ruby/run
+        #- echo "bin/rails s -b 0.0.0.0 -p 80" >> /etc/service/ruby/run
+        #- chmod +x /etc/service/ruby/run
+
+      start:
+        - bin/rails s -b 0.0.0.0 -p 80
 
   database:
     image: tugboatqa/postgres:10.13
