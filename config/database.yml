@@ -9,9 +9,9 @@ default: &default
   min_messages: WARNING
   template: template0  #template0 resolves an issue with SQL_ASCII vs UTF-8 encoding
 
-test:
-  <<: *default
-  database: <%= ENV["DB_NAME_TEST"] %>
+#test:
+#  <<: *default
+#  database: <%= ENV["DB_NAME_TEST"] %>
 
 development:
   <<: *default
@@ -22,5 +22,3 @@ uat:
 production:
   <<: *default
   database: <%= ENV["DB_NAME_PROD"] %>
-
-
