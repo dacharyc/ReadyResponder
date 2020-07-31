@@ -8,8 +8,7 @@ services:
       init:
         - apt-get update
         - apt-get install ruby ruby-dev
-        - apt-get install postgresql-client imagemagick
-        - apt-get install zlib1g-dev
+        - apt-get install postgresql imagemagick zlib1g-dev
         - gem update --system
         - gem install bundler:1.16.6
         - gem install rake:12.3.1
