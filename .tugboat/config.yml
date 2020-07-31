@@ -13,6 +13,8 @@ services:
         - gem install bundler:1.16.6
         - gem install rake:12.3.1
         - bundle install
+        - apt-get clean
+        - rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
       update:
         - bin/rails db:setup
